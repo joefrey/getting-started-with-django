@@ -9,7 +9,9 @@ from django.contrib.auth.models import AbstractUser
 # Create custom User model
 class User(AbstractUser):
   # pass means nothing to add
-  pass 
+  # pass 
+  is_organizer = models.BooleanField(default=True)
+  is_agent = models.BooleanField(default=False)
 
   # but it we want to add new field like phone number
   # cellphone_number = models.CharField(max_length=100)
@@ -31,8 +33,10 @@ class Lead(models.Model):
   first_name = models.CharField(max_length=20)
   last_name = models.CharField(max_length=20)
   age = models.IntegerField(default=0)
+  organization = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
   # Many leads for one agent -- Many to one
-  agent = models.ForeignKey("Agent", on_delete=models.CASCADE)
+  # Every lead associated with one agent
+  agent = models.ForeignKey("Agent",  null=True, blank=True, on_delete=models.SET_NULL)
 
   def __str__(self):
     return f"{self.first_name} {self.last_name}"
