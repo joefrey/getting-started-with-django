@@ -1,0 +1,22 @@
+<!-- @format -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <p>This is the second page</p>
+    <p>Hello, I'm {{ name }}, and I'm {{ age }} years of age.</p>
+    <ul>
+      {% for lead in leads %}
+      <li>
+        {{lead.first_name}} {{ lead.last_name }} &mdash; {{ lead.age }} years of
+        age
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

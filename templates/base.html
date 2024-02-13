@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJCRM</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .lead {
+      padding: 10px 6px;
+      margin-top: 10px;
+      background: #f6f6f6;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <div class="max-w-6xl mx-auto">
+  {% include 'navbar.html' %}  
+  {% block content %}
+  {% endblock content %}
+  
+  {% include 'scripts.html' %}
+  </div>
+</body>
+</html>
